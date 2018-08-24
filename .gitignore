@@ -21,6 +21,7 @@ Thumbs.db
 .tmproj
 *.esproj
 nbproject
+package-lock.json
 *.sublime-project
 *.sublime-workspace
 *.komodoproject
