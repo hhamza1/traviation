@@ -4,15 +4,18 @@ var gulp = require('gulp'),
     autoprefixer = require('autoprefixer'),
     cssVars = require('postcss-simple-vars'),
     nested = require('postcss-nested');
-    cssImport = require('postcss-import');
+    cssImport = require('postcss-import'),
+    browserSynch = require('browser-sync').create();
 
 gulp.task('default', function(done){
     console.log("You are using gulp");
-    done();
 });
 
-gulp.task('html', function(){
-    console.log('This is the html gulp task');
+
+
+gulp.task('html', function(done){
+    browserSynch.reload();
+    done();
 });
 
 gulp.task('styles', function(){
@@ -21,8 +24,21 @@ gulp.task('styles', function(){
         .pipe(gulp.dest('./app/temp/styles'));
 });
 
-gulp.task('watch', function(done){
+gulp.task('watch', function(){
+
+    browserSynch.init({
+        notify: false,
+        server:{
+            baseDir: "app"
+        }
+    });
+
     gulp.watch('./app/index.html', gulp.series('html'));
-    gulp.watch('./app/assets/styles/**/*.css', gulp.series('styles'));
-    done();
+    gulp.watch('./app/assets/styles/**/*.css', gulp.series('cssInject'));
 });
+
+
+gulp.task('cssInject', gulp.series('styles', function(){
+    return gulp.src('./app/temp/styles/styles.css')
+    .pipe(browserSynch.stream());
+})); 
