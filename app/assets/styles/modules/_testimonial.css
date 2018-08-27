@@ -1,7 +1,10 @@
 .testimonial{
-    background-color: #e0e6ef;
+    padding: 0 18px 1px 18px;
+    margin-bottom: 98px;
 
-    @mixin atMedium {
+
+    @mixin atLarge {
+        margin-bottom: 0;
         background-color: rgba(255, 255, 255, .8);
         padding: 0 1.8125rem 1px 1.8125rem ;
     }
@@ -31,5 +34,9 @@
         font-size: .9375rem;
         font-weight: 400;
         margin : 0.25rem 0 1rem 0;
+    }
+
+    &--last {
+        margin-bottom: 0;
     }
 }
