@@ -1,6 +1,6 @@
 var gulp =  require('gulp'),
     sprite = require('gulp-svg-sprite'),
-    rename = require('gulp-rename'); 
+    rename = require('gulp-rename'),
     del    = require('del'); 
 
 var config = {
