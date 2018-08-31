@@ -12,11 +12,11 @@ var config = {
             }
         }
     }
-}
+};
 
 
 
-gulp.task('createSprite', function(error)
+gulp.task('createSprite', function()
     {
         return gulp.src('./app/assets/images/icons/**/*.svg')
         .pipe(sprite(config))    
@@ -28,3 +28,6 @@ gulp.task('copySpriteCSS', function(){
     .pipe(rename('_sprite.css'))
     .pipe(gulp.dest('./app/assets/styles/modules'));
 });
+
+
+gulp.task('icons', gulp.series('createSprite', 'copySpriteCSS'));
