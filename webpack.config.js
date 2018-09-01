@@ -1,7 +1,8 @@
 var path = require('path');
 
 
-modules.exports = {
+module.exports = {
+    mode: "none",
     entry: './app/assets/scripts/App.js',
     output:
         {
@@ -9,14 +10,14 @@ modules.exports = {
             filename: 'bundle.js'
         },
     module: {
-        loaders: [
+        rules: [
             {
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015']
-                },
+               
+                use: [
+                    {loader: 'babel-loader'},
+                ],
                 test:'/\.js$/',
-                exclude: '/node_modules'
+                exclude: ['/node_modules']
             }
         ]
     }
