@@ -6,6 +6,10 @@
     margin-left: auto;
     margin-right: auto;
 
+    .site-header__menu-content--is-visible{
+        z-index: 2;
+    }
+
     &--medium {
         max-width: 976px;
     }
