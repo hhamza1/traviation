@@ -41,7 +41,7 @@
         opacity: 0;
         z-index: -10;
         position: relative;
-        padding-top: 90px;
+        padding-top: 100px;
         transform: scale(1.2);
         transition: opacity .3s ease-out;
         text-align: center;
@@ -58,6 +58,7 @@
             opacity: 1;
             z-index: 1;
             transform: scale(1);
+            padding-top: 12px;
 
         }
 
