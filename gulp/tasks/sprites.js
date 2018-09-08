@@ -17,7 +17,7 @@ var config = {
 
 
 gulp.task('firstClean', function(){
-    return del(['./app/temp/sprite', './app/assets/images/sprites']);
+    return del(['./app/temp/css', './app/assets/images/sprites']);
 });
 
 gulp.task('lastClean', function(){
@@ -33,7 +33,7 @@ gulp.task('createSprite', function()
     });
 
 gulp.task('copySpriteCSS', function(){
-    return gulp.src('./app/temp/sprite/css/*.css')
+    return gulp.src('./app/temp/css/*.css')
     .pipe(rename('_sprite.css'))
     .pipe(gulp.dest('./app/assets/styles/modules'));
 });
