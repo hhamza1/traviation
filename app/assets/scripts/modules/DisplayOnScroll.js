@@ -10,7 +10,7 @@ class DisplayOnScroll {
     }
 
     hideInitially() {
-        this.itemToReveal.addClass('reveal-item');
+        this.itemToReveal.addClass('display-item');
     }
 
     createWayPoints() {
@@ -20,7 +20,7 @@ class DisplayOnScroll {
             new Waypoint({
                 element: currentItem,
                 handler: function(){
-                    $(currentItem).addClass('reveal-item--is-visible');
+                    $(currentItem).addClass('display-item--is-visible');
                 },
                 offset: that.offsetPercentage
             });
