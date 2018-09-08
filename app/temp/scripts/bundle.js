@@ -94,11 +94,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var _modules_DisplayOnScroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _modules_FixedHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+
 
 
 
 
 var mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__["default"];
+var fixedHeader = new _modules_FixedHeader__WEBPACK_IMPORTED_MODULE_3__["default"];
 new _modules_DisplayOnScroll__WEBPACK_IMPORTED_MODULE_2__["default"](jquery__WEBPACK_IMPORTED_MODULE_0___default()('.feature-item'), "85%");
 new _modules_DisplayOnScroll__WEBPACK_IMPORTED_MODULE_2__["default"](jquery__WEBPACK_IMPORTED_MODULE_0___default()('.testimonial'), "60%");
 
@@ -10530,7 +10533,7 @@ class DisplayOnScroll {
     }
 
     hideInitially() {
-        this.itemToReveal.addClass('reveal-item');
+        this.itemToReveal.addClass('display-item');
     }
 
     createWayPoints() {
@@ -10540,7 +10543,7 @@ class DisplayOnScroll {
             new Waypoint({
                 element: currentItem,
                 handler: function(){
-                    jquery__WEBPACK_IMPORTED_MODULE_0___default()(currentItem).addClass('reveal-item--is-visible');
+                    jquery__WEBPACK_IMPORTED_MODULE_0___default()(currentItem).addClass('display-item--is-visible');
                 },
                 offset: that.offsetPercentage
             });
@@ -11313,6 +11316,46 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
   Waypoint.Adapter = NoFrameworkAdapter
 }())
 ;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_waypoints_lib_noframework_waypoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
+/* harmony import */ var _node_modules_waypoints_lib_noframework_waypoints__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_waypoints_lib_noframework_waypoints__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+
+class FixedHeader {
+    constructor(){
+        this.siteHeader = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.site-header');
+        this.trigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.large-hero__title');
+        this.headerWayPoint();
+    }
+
+    headerWayPoint(){
+        var that = this;
+        new Waypoint ({
+            element: this.trigger[0] ,
+            handler: function(direction){
+                if(direction == "down"){
+                    jquery__WEBPACK_IMPORTED_MODULE_0___default()(that.siteHeader).addClass('site-header--darker');
+                }
+                else {
+                    jquery__WEBPACK_IMPORTED_MODULE_0___default()(that.siteHeader).removeClass('site-header--darker');
+                }
+            }
+        });
+    }
+}
+
+
+/* harmony default export */ __webpack_exports__["default"] = (FixedHeader);
 
 /***/ })
 /******/ ]);
