@@ -1229,3 +1229,12 @@ a {
     }
     }
 
+.reveal-item{
+    opacity: 0;
+}
+
+.reveal-item--is-visible{
+        opacity: 1;
+        transition: opacity 1.5s ease-out;
+    }
+
