@@ -7,6 +7,17 @@ gulp.task('html', function(done){
     done();
 });
 
+gulp.task('cssInject', gulp.series('styles', function(){
+    return gulp.src('./app/temp/styles/styles.css')
+    .pipe(browserSynch.stream());
+})); 
+
+gulp.task('scriptsRefresh', function(done){
+    browserSynch.reload();
+    done();
+});
+
+
 gulp.task('watch', function(){
 
     browserSynch.init({
@@ -20,15 +31,4 @@ gulp.task('watch', function(){
     gulp.watch('./app/assets/styles/**/*.css', gulp.series('cssInject'));
     gulp.watch('./app/assets/scripts/**/*js', gulp.series('scripts', 'scriptsRefresh'));
 
-});
-
-
-gulp.task('cssInject', gulp.series('styles', function(){
-    return gulp.src('./app/temp/styles/styles.css')
-    .pipe(browserSynch.stream());
-})); 
-
-gulp.task('scriptsRefresh', function(done){
-    browserSynch.reload();
-    done();
 });
