@@ -28,6 +28,7 @@ gulp.task('cssInject', gulp.series('styles', function(){
     .pipe(browserSynch.stream());
 })); 
 
-gulp.task('scriptsRefresh', function(){
+gulp.task('scriptsRefresh', function(done){
     browserSynch.reload();
-})
+    done();
+});
