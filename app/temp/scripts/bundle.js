@@ -95,6 +95,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var _modules_DisplayOnScroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 /* harmony import */ var _modules_FixedHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var _modules_Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
+
 
 
 
@@ -104,6 +106,7 @@ var mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__["default"]
 var fixedHeader = new _modules_FixedHeader__WEBPACK_IMPORTED_MODULE_3__["default"];
 new _modules_DisplayOnScroll__WEBPACK_IMPORTED_MODULE_2__["default"](jquery__WEBPACK_IMPORTED_MODULE_0___default()('.feature-item'), "85%");
 new _modules_DisplayOnScroll__WEBPACK_IMPORTED_MODULE_2__["default"](jquery__WEBPACK_IMPORTED_MODULE_0___default()('.testimonial'), "60%");
+var modal = new _modules_Modal__WEBPACK_IMPORTED_MODULE_4__["default"];
 
 
  
@@ -11356,6 +11359,44 @@ class FixedHeader {
 
 
 /* harmony default export */ __webpack_exports__["default"] = (FixedHeader);
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+class Modal{
+    constructor(){
+        this.openModalButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.open-modal');
+        this.modal = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.modal');
+        this.closeModalButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.modal__close');
+        this.events();
+    }
+
+
+    events(){
+        this.openModalButton.click(this.openModal.bind(this));
+        this.closeModalButton.click(this.closeModal.bind(this));
+    }
+
+    openModal(){
+        this.modal.addClass('modal--is-open');
+        return false;
+    }
+
+    closeModal(){
+        this.modal.removeClass('modal--is-open');
+        return false;
+    }
+
+}   
+
+/* harmony default export */ __webpack_exports__["default"] = (Modal);
 
 /***/ })
 /******/ ]);
